@@ -3,97 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Bidwiya | Crafted by Ayan</title>
+    <title>For Bidwiya | Luxury Romantic Edition | By Ayan</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&family=Great+Vibes&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&family=Great+Vibes&family=Pacifico&family=Cinzel+Decorative:wght@700&display=swap');
 
         body {
             margin: 0; padding: 0;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: white;
-            font-family: 'Quicksand', sans-serif;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            min-height: 100vh; overflow-x: hidden;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0f0c29 100%);
+            color: white; font-family: 'Quicksand', sans-serif;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; overflow: hidden; touch-action: none;
+            padding-bottom: 20px;
         }
 
-        /* Top Header */
-        .top-header {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem; color: #ff9a9e;
-            margin-bottom: 20px; text-align: center;
-            letter-spacing: 2px; animation: fadeInDown 1.5s;
+        /* 1. New Framed Header Design with Typing Emoji */
+        .header-frame {
+            border: 2px solid #fbc531;
+            padding: 10px 20px;
+            border-radius: 15px;
+            background: rgba(251, 197, 49, 0.05);
+            box-shadow: 0 0 15px rgba(251, 197, 49, 0.3), inset 0 0 10px rgba(251, 197, 49, 0.2);
+            margin-bottom: 20px;
+            animation: frameGlow 2s infinite alternate;
+            text-align: center;
         }
 
+        @keyframes frameGlow {
+            0% { box-shadow: 0 0 10px rgba(251, 197, 49, 0.3); border-color: #fbc531; }
+            100% { box-shadow: 0 0 20px rgba(251, 197, 49, 0.6); border-color: #fff; }
+        }
+
+        .typing-container {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.3rem;
+            color: #fff;
+            text-shadow: 0 0 10px #fbc531, 0 0 20px #fbc531;
+            letter-spacing: 1px;
+            min-height: 35px;
+        }
+
+        /* 2. Luxury Glass Card */
         .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(25px);
-            padding: 40px 25px; border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center; width: 88%; max-width: 400px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-            position: relative; z-index: 10;
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px);
+            padding: 30px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center; width: 85%; max-width: 360px; position: relative; overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7); z-index: 10;
         }
 
+        .glass-card::before {
+            content: ''; position: absolute; top: -150%; left: -150%; width: 300%; height: 300%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.08), transparent);
+            transform: rotate(45deg); animation: shine 5s infinite;
+        }
+        @keyframes shine { 0% { left: -150%; } 100% { left: 150%; } }
+
+        /* 3. 3D Name Animation - Romantic Update */
         .name {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem; margin: 10px 0;
+            font-family: 'Great Vibes', cursive; /* More romantic font */
+            font-size: 3rem; margin: 10px 0;
             background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a18cd1);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: float3D 4s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
         }
+        @keyframes float3D {
+            0%, 100% { transform: perspective(500px) rotateY(0deg) translateY(0); }
+            50% { transform: perspective(500px) rotateY(15deg) translateY(-8px); }
+        }
+
+        .coming-soon { font-size: 13px; color: #fbc531; letter-spacing: 2px; margin-bottom: 15px; font-weight: bold; text-transform: uppercase; }
 
         /* Countdown */
-        .countdown { display: flex; justify-content: center; gap: 10px; margin: 25px 0; }
-        .box { 
-            background: rgba(255, 255, 255, 0.07); 
-            padding: 10px; border-radius: 15px; width: 65px;
-            border-bottom: 3px solid #ff9a9e;
+        .countdown { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
+        .box { background: rgba(255, 255, 255, 0.05); padding: 12px 5px; border-radius: 15px; width: 62px; border-bottom: 2px solid #ff9a9e; }
+        .box span { display: block; font-size: 20px; font-weight: 700; color: #ff9a9e; }
+        .box small { font-size: 8px; opacity: 0.6; }
+
+        /* Music Visualizer */
+        .visualizer { display: flex; justify-content: center; align-items: flex-end; gap: 3px; height: 30px; margin: 15px 0; display: none; }
+        .bar { width: 4px; background: #ff9a9e; border-radius: 2px; animation: bounce 0.5s ease infinite alternate; }
+        @keyframes bounce { from { height: 5px; } to { height: 25px; } }
+
+        .btn-group { display: flex; justify-content: center; gap: 8px; }
+        .btn { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 10px 15px; border-radius: 50px; cursor: pointer; font-size: 11px; font-weight: 600; transition: 0.3s; }
+        .btn:hover { background: #ff9a9e; color: #000; box-shadow: 0 0 15px #ff9a9e; }
+
+        /* Heartbeat Advance Button */
+        .advance-btn {
+            background: linear-gradient(45deg, #ff4757, #ff6b81, #7d5fff); color: white; border: none; padding: 15px 28px; 
+            border-radius: 50px; cursor: pointer; margin-top: 30px; font-weight: bold; font-size: 14px; 
+            animation: heartbeat 1.5s infinite; box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
         }
-        .box span { display: block; font-size: 20px; font-weight: 700; }
-        .box small { font-size: 9px; opacity: 0.7; text-transform: uppercase; }
+        @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
-        /* Hidden Wish Box */
-        #wishBox {
-            display: none;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
-            padding: 25px; border-radius: 25px;
-            margin-top: 20px; font-size: 15px;
-            line-height: 1.8; color: #fff;
-            border: 1px solid #ff9a9e;
-            animation: fadeInUp 0.5s ease;
-            text-align: left;
-        }
+        /* Magic Trail */
+        .trail { position: fixed; width: 8px; height: 8px; background: #ff9a9e; border-radius: 50%; pointer-events: none; z-index: 999; box-shadow: 0 0 10px #ff9a9e; animation: fadeTrail 0.6s forwards; }
+        @keyframes fadeTrail { to { opacity: 0; transform: scale(0.1); } }
 
-        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
-        .btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white; border: 1px solid rgba(255, 255, 255, 0.2); 
-            padding: 12px 20px; border-radius: 50px; cursor: pointer; 
-            font-size: 13px; transition: 0.3s; font-weight: 600;
-        }
-        .btn:hover { background: #ff9a9e; color: #1a0a2e; transform: scale(1.05); }
+        #bigWishOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(15px); z-index: 100; justify-content: center; align-items: center; flex-direction: column; }
+        .big-wish-text { font-family: 'Pacifico', cursive; font-size: 2.5rem; text-align: center; background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a18cd1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: zoomIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes zoomIn { from { transform: scale(0); } to { transform: scale(1); } }
 
-        /* Bottom Text */
-        .bottom-footer {
-            margin-top: 30px; text-align: center;
-            font-size: 14px; color: rgba(255,255,255,0.7);
-        }
-        .bottom-footer b { color: #ff9a9e; }
+        .footer { margin-top: 25px; font-size: 13px; color: rgba(255,255,255,0.5); }
+        .footer b { color: #ff9a9e; font-family: 'Dancing Script'; font-size: 18px; }
 
-        .drop { position: fixed; top: -50px; z-index: 100; animation: fall linear forwards; pointer-events: none; }
-        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
-
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .particle { position: fixed; pointer-events: none; z-index: 1000; animation: fallAnim forwards; }
+        @keyframes fallAnim { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
 
-    <div class="top-header">A Beautiful Journey Awaits...</div>
+    <div class="header-frame">
+        <div class="typing-container"><span id="type"></span></div>
+    </div>
 
     <div class="glass-card">
-        <h1 class="name">Bidwiya Ji</h1>
+        <h1 class="name">❤️‍🩹 Bidwiya ji 💞</h1>
+        <div class="coming-soon">Coming Soon 16.01.2027</div>
         
         <div class="countdown">
             <div class="box"><span id="d">00</span><small>Days</small></div>
@@ -102,48 +128,61 @@
             <div class="box"><span id="s">00</span><small>Sec</small></div>
         </div>
 
+        <div class="visualizer" id="viz">
+            <div class="bar" style="animation-delay: 0.1s"></div>
+            <div class="bar" style="animation-delay: 0.3s"></div>
+            <div class="bar" style="animation-delay: 0.2s"></div>
+            <div class="bar" style="animation-delay: 0.4s"></div>
+            <div class="bar" style="animation-delay: 0.1s"></div>
+        </div>
+
         <div class="btn-group">
-            <button class="btn" onclick="toggleMusic()">🎵 Romantic Music</button>
-            <button class="btn" onclick="celebrate()">🎆 Celebrate</button>
-            <button class="btn" onclick="toggleWish()">💌 Message for you</button>
+            <button class="btn" onclick="toggleMusic()">🎵 Sweet Music</button>
+            <button class="btn" onclick="celebrate()">🎆 Fireworks</button>
+            <button class="btn" onclick="toggleMsg()">💌 Message</button>
         </div>
 
-        <div id="wishBox">
-            ✨ <b>Dear Bidwiya,</b><br>
-            তোর এই বিশেষ দিনটি যেন তোর জীবনের সবথেকে সুন্দর মুহূর্ত হয়ে ওঠে। তুই সবসময় এভাবেই হাসিখুশি থাকিস এবং তোর সব স্বপ্ন সত্যি হোক। তোর জন্য রইলো এক আকাশ ভালোবাসা আর শুভকামনা! 🌸💖
+        <div id="msg" style="display:none; margin-top:20px; font-size:14px; border-left:3px solid #ff9a9e; padding-left:12px; text-align:left; line-height:1.6;">
+            ✨ <b>Dear Bidwiya,</b> তোর এই বিশেষ দিনটি যেন সবথেকে সুন্দর হয়।তোর সব স্বপ্ন পূরণ হোক আর তুই সবসময় সুখী থাক—আমি এটাই চাই।
+              তোর জন্য রইলো এক
+              আকাশ ভালোবাসা! 🌸💖
         </div>
     </div>
 
-    <div class="bottom-footer">
-        Made by <b>Ayan</b> for you <b>Bidwiya</b>
+    <button class="advance-btn" onclick="showWish()">Happy Birthday Wishes in Advance... 🎂</button>
+
+    <div class="footer">Made by <b>Ayan</b> for you <b>Bidwiya</b></div>
+
+    <div id="bigWishOverlay" onclick="this.style.display='none'">
+        <div class="big-wish-color">
+            <div class="big-wish-text">Happy Birthday <br> Re Bidwiya! <br> 🎂🎉✨❤️👑</div>
+        </div>
+        <p style="color:#aaa; font-size:11px; margin-top:25px;">(Click anywhere to close)</p>
     </div>
 
-    <audio id="romanticSong" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" type="audio/mpeg">
-    </audio>
-
-    <audio id="fireworkSound">
-        <source src="https://www.fesliyanstudios.com/play-mp3/6666" type="audio/mpeg">
-    </audio>
+    <audio id="song" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3"></audio>
+    <audio id="fire"><source src="https://www.fesliyanstudios.com/play-mp3/6666"></audio>
 
     <script>
-        // Constant Love Rain
-        function startRain() {
-            const items = ['🌸', '✨', '💖', '🌹'];
-            setInterval(() => {
-                const d = document.createElement('div');
-                d.className = 'drop';
-                d.innerText = items[Math.floor(Math.random()*items.length)];
-                d.style.left = Math.random()*100+'vw';
-                d.style.fontSize = Math.random()*10+15+'px';
-                d.style.animationDuration = Math.random()*2+4+'s';
-                document.body.appendChild(d);
-                setTimeout(() => d.remove(), 5000);
-            }, 600);
+        // Typing Effect with correct text and emojis
+        const txt = "💖 A small gift for you Bidwiya 💝";
+        let i = 0;
+        function type() {
+            if(i < txt.length) { document.getElementById("type").innerHTML += txt.charAt(i); i++; setTimeout(type, 130); }
         }
-        window.onload = startRain;
 
-        // Timer
+        // Magic Trail (Mouse/Touch)
+        const handleTrail = (e) => {
+            const t = document.createElement('div');
+            t.className = 'trail';
+            t.style.left = (e.pageX || (e.touches && e.touches[0].pageX)) + 'px';
+            t.style.top = (e.pageY || (e.touches && e.touches[0].pageY)) + 'px';
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 600);
+        };
+        document.addEventListener('mousemove', handleTrail);
+        document.addEventListener('touchmove', handleTrail);
+
         function updateTimer() {
             const target = new Date('January 16, 2027 00:00:00').getTime();
             const now = new Date().getTime();
@@ -157,39 +196,43 @@
         }
         setInterval(updateTimer, 1000);
 
-        // Music
         let playing = false;
         function toggleMusic() {
-            const m = document.getElementById('romanticSong');
-            if(playing) { m.pause(); playing = false; }
-            else { m.play().then(() => playing = true).catch(() => alert("Touch screen then play!")); }
+            const s = document.getElementById('song');
+            const v = document.getElementById('viz');
+            if(playing) { s.pause(); v.style.display = 'none'; playing = false; }
+            else { s.play(); v.style.display = 'flex'; playing = true; }
         }
 
-        // Toggle Wish Message
-        function toggleWish() {
-            const box = document.getElementById('wishBox');
-            box.style.display = (box.style.display === "block") ? "none" : "block";
-        }
+        function toggleMsg() { const m = document.getElementById('msg'); m.style.display = (m.style.display==='none')?'block':'none'; }
 
-        // Celebrate with Sound
+        function showWish() { document.getElementById('bigWishOverlay').style.display='flex'; celebrate(); }
+
+        // Celebration Effects - Enhanced 'Aro Hobe' Request
         function celebrate() {
-            const snd = document.getElementById('fireworkSound');
-            snd.currentTime = 0;
-            snd.play(); // আতশবাজি ফাটার শব্দ
-
-            const items = ['🎉', '✨', '🎁', '🎂', '🎊', '🎆'];
-            for(let i=0; i<60; i++) {
+            document.getElementById('fire').currentTime = 0;
+            document.getElementById('fire').play();
+            // Increased emoji variety and amount
+            const emojis = ['🎉','🎂','✨','💖','🎆','🎈','🌹','🌸', '💝', '💞', '❤️', '👑', '🌈', '🍫', '🧸'];
+            // Double the particles for 'aro hobe' request
+            for(let k=0; k<200; k++) {
                 setTimeout(() => {
-                    const d = document.createElement('div');
-                    d.className = 'drop';
-                    d.innerText = items[Math.floor(Math.random()*items.length)];
-                    d.style.left = Math.random()*100+'vw';
-                    d.style.animationDuration = '3s';
-                    document.body.appendChild(d);
-                    setTimeout(() => d.remove(), 3000);
-                }, i * 50);
+                    const p = document.createElement('div');
+                    p.className = 'particle';
+                    p.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+                    // Randomize left more, and increase dispersion
+                    p.style.left = (Math.random()*120 - 10) + 'vw';
+                    p.style.top = (Math.random()*-50 - 20) + 'px';
+                    p.style.fontSize = Math.random()*25+15+'px';
+                    p.style.animationDuration = (Math.random()*3+2.5)+'s';
+                    p.style.animationName = 'fallAnim';
+                    p.style.animationTimingFunction = 'cubic-bezier(0.1, 0.5, 0.5, 1)';
+                    document.body.appendChild(p);
+                    setTimeout(() => p.remove(), 5500); // Slightly longer particle lifespan
+                }, k * 20); // Faster particle creation
             }
         }
+        window.onload = () => { type(); updateTimer(); };
     </script>
 </body>
 </html>
