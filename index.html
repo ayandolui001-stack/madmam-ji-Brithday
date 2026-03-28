@@ -3,280 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bidwiya's Ultimate 2027 Countdown | By Ayan</title>
+    <title>For Bidwiya | Crafted by Ayan</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&family=Great+Vibes&display=swap');
 
         body {
             margin: 0; padding: 0;
-            background: #050510;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: white;
-            font-family: 'Poppins', sans-serif;
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; overflow: hidden;
-            flex-direction: column;
+            font-family: 'Quicksand', sans-serif;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 100vh; overflow-x: hidden;
         }
 
-        /* তারার ব্যাকগ্রাউন্ড */
-        .star { position: absolute; background: white; border-radius: 50%; opacity: 0.5; animation: blink 3s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+        /* Top Header */
+        .top-header {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem; color: #ff9a9e;
+            margin-bottom: 20px; text-align: center;
+            letter-spacing: 2px; animation: fadeInDown 1.5s;
+        }
 
-        /* মেইন গ্লাস কার্ড */
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            padding: 35px; border-radius: 35px;
+            backdrop-filter: blur(25px);
+            padding: 40px 25px; border-radius: 40px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center; width: 85%; max-width: 420px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            text-align: center; width: 88%; max-width: 400px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
             position: relative; z-index: 10;
-            margin-bottom: 20px;
         }
 
         .name {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.8rem; margin: 0;
-            background: linear-gradient(45deg, #ff4757, #fbc531, #00d2ff);
+            font-size: 3.5rem; margin: 10px 0;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a18cd1);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255, 71, 87, 0.5));
-            padding-bottom: 10px;
         }
 
-        .coming-soon {
-            font-size: 13px; color: #fbc531; font-weight: 600;
-            margin-bottom: 15px; letter-spacing: 1px;
-            text-transform: uppercase;
+        /* Countdown */
+        .countdown { display: flex; justify-content: center; gap: 10px; margin: 25px 0; }
+        .box { 
+            background: rgba(255, 255, 255, 0.07); 
+            padding: 10px; border-radius: 15px; width: 65px;
+            border-bottom: 3px solid #ff9a9e;
+        }
+        .box span { display: block; font-size: 20px; font-weight: 700; }
+        .box small { font-size: 9px; opacity: 0.7; text-transform: uppercase; }
+
+        /* Hidden Wish Box */
+        #wishBox {
+            display: none;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            padding: 25px; border-radius: 25px;
+            margin-top: 20px; font-size: 15px;
+            line-height: 1.8; color: #fff;
+            border: 1px solid #ff9a9e;
+            animation: fadeInUp 0.5s ease;
+            text-align: left;
         }
 
-        /* কাউন্টডাউন */
-        .countdown { display: flex; justify-content: space-between; margin: 25px 0; }
-        .box { background: rgba(0,0,0,0.4); padding: 12px; border-radius: 15px; flex: 1; margin: 0 5px; border-bottom: 3px solid #ff4757; }
-        .box span { display: block; font-size: 22px; font-weight: bold; color: #fff; }
-        .box small { color: #ccc; font-size: 11px; text-transform: uppercase; }
-
-        /* মেসেজ বক্স */
-        #msgBox, #fwMsg { 
-            display: none; background: rgba(255, 255, 255, 0.1); 
-            padding: 15px; border-radius: 15px; margin-top: 20px;
-            font-style: italic; font-size: 14px; border-left: 4px solid #fbc531;
-            animation: fadeIn 0.5s; line-height: 1.6;
-        }
-        
-        #fwMsg {
-            position: fixed; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 200; font-size: 26px;
-            font-weight: bold; font-style: normal;
-            background: rgba(10, 10, 15, 0.95);
-            border: 2px solid #00d2ff;
-            border-radius: 15px;
-            padding: 20px 30px;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
-        }
-
-        /* বাটন গ্রুপ */
-        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 25px; }
+        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
         .btn {
-            background: linear-gradient(45deg, #ff4757, #ff6b81);
-            color: white; border: none; padding: 12px 20px;
-            border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 14px;
-            transition: 0.3s; letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white; border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 12px 20px; border-radius: 50px; cursor: pointer; 
+            font-size: 13px; transition: 0.3s; font-weight: 600;
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4); }
-        
-        /* টেডি বাটন */
-        .teddy-btn {
-            background: linear-gradient(45deg, #00d2ff, #2f3542);
-            font-size: 18px; padding: 15px 30px;
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
-            margin-top: 10px;
+        .btn:hover { background: #ff9a9e; color: #1a0a2e; transform: scale(1.05); }
+
+        /* Bottom Text */
+        .bottom-footer {
+            margin-top: 30px; text-align: center;
+            font-size: 14px; color: rgba(255,255,255,0.7);
         }
+        .bottom-footer b { color: #ff9a9e; }
 
-        .footer { font-size: 11px; color: #888; margin-top: 30px; letter-spacing: 1px; }
-        .footer b { color: #ff4757; }
-
-        /* আতশবাজি এনিমেশন */
-        .confetti {
-            position: fixed; width: 8px; height: 8px;
-            top: var(--y); left: var(--x);
-            animation: conf-fall var(--duration) linear forwards;
-            pointer-events: none; z-index: 150; border-radius: 50%;
-        }
-
-        @keyframes conf-fall {
-            0% { transform: translate(0, 0) scale(1); opacity: 1; }
-            100% { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity: 0; }
-        }
-
-        /* সাধারণ এনিমেশনস */
         .drop { position: fixed; top: -50px; z-index: 100; animation: fall linear forwards; pointer-events: none; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <div id="stars"></div>
+    <div class="top-header">A Beautiful Journey Awaits...</div>
 
     <div class="glass-card">
-        <div class="coming-soon">Birthday coming soon on 16.01.2027</div>
         <h1 class="name">Bidwiya Ji</h1>
         
         <div class="countdown">
             <div class="box"><span id="d">00</span><small>Days</small></div>
-            <div class="box"><span id="h">00</span><small>Hours</small></div>
-            <div class="box"><span id="m">00</span><small>Mins</small></div>
-            <div class="box"><span id="s">00</span><small>Secs</small></div>
-        </div>
-
-        <div id="msgBox">
-            "শুভ জন্মদিন Bidwiya! ১৬ই জানুয়ারি দিনটি তোর জন্য নিয়ে আসুক অনেক আনন্দ আর সাফল্য। তুই সবসময় এভাবেই হাসিখুশি থাকিস।" ❤️✨
+            <div class="box"><span id="h">00</span><small>Hrs</small></div>
+            <div class="box"><span id="m">00</span><small>Min</small></div>
+            <div class="box"><span id="s">00</span><small>Sec</small></div>
         </div>
 
         <div class="btn-group">
-            <button class="btn" onclick="toggleMusic()">🎵 Music</button>
-            <button class="btn" onclick="showRainSurprise()">🎁 Surprise Rain</button>
-            <button class="btn" onclick="toggleMsg()">💌 Message</button>
+            <button class="btn" onclick="toggleMusic()">🎵 Romantic Music</button>
+            <button class="btn" onclick="celebrate()">🎆 Celebrate</button>
+            <button class="btn" onclick="toggleWish()">💌 Message for you</button>
         </div>
 
-        <div class="footer">Made with ❤️ by <b>Ayan</b></div>
+        <div id="wishBox">
+            ✨ <b>Dear Bidwiya,</b><br>
+            তোর এই বিশেষ দিনটি যেন তোর জীবনের সবথেকে সুন্দর মুহূর্ত হয়ে ওঠে। তুই সবসময় এভাবেই হাসিখুশি থাকিস এবং তোর সব স্বপ্ন সত্যি হোক। তোর জন্য রইলো এক আকাশ ভালোবাসা আর শুভকামনা! 🌸💖
+        </div>
     </div>
-    
-    <button class="btn teddy-btn" onclick="runFirecrackers()">Click Me for Fireworks And Suprise🧸</button>
-    
-    <div id="fwMsg">🎉 Happy Birthday Re Bidwiya! 👑❤️</div>
 
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+    <div class="bottom-footer">
+        Made by <b>Ayan</b> for you <b>Bidwiya</b>
+    </div>
+
+    <audio id="romanticSong" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" type="audio/mpeg">
     </audio>
-    
-    <audio id="fwSound">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" type="audio/mpeg">
+
+    <audio id="fireworkSound">
+        <source src="https://www.fesliyanstudios.com/play-mp3/6666" type="audio/mpeg">
     </audio>
 
     <script>
-        // ব্যাকগ্রাউন্ড তারা তৈরি
-        const sky = document.getElementById('stars');
-        for(let i=0; i<80; i++) {
-            const s = document.createElement('div');
-            s.className = 'star';
-            const size = Math.random()*2+1+'px';
-            s.style.width = size; s.style.height = size;
-            s.style.left = Math.random()*100+'vw'; s.style.top = Math.random()*100+'vh';
-            s.style.animationDelay = Math.random()*3+'s';
-            sky.appendChild(s);
+        // Constant Love Rain
+        function startRain() {
+            const items = ['🌸', '✨', '💖', '🌹'];
+            setInterval(() => {
+                const d = document.createElement('div');
+                d.className = 'drop';
+                d.innerText = items[Math.floor(Math.random()*items.length)];
+                d.style.left = Math.random()*100+'vw';
+                d.style.fontSize = Math.random()*10+15+'px';
+                d.style.animationDuration = Math.random()*2+4+'s';
+                document.body.appendChild(d);
+                setTimeout(() => d.remove(), 5000);
+            }, 600);
         }
+        window.onload = startRain;
 
-        // কাউন্টডাউন লজিক (১৬.০১.২০২৭ এর জন্য)
+        // Timer
         function updateTimer() {
             const target = new Date('January 16, 2027 00:00:00').getTime();
             const now = new Date().getTime();
             const diff = target - now;
-
             if (diff > 0) {
                 document.getElementById('d').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
                 document.getElementById('h').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
                 document.getElementById('m').innerText = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
                 document.getElementById('s').innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
-            } else {
-                // সময় শেষ হলে সব ০ দেখাবে
-                document.querySelectorAll('.box span').forEach(span => span.innerText = '00');
             }
         }
         setInterval(updateTimer, 1000);
-        updateTimer();
 
-        // মিউজিক কন্ট্রোল
-        let isMusicPlaying = false;
-        function toggleMusic() { 
-            const music = document.getElementById('bgMusic');
-            if(isMusicPlaying) {
-                music.pause();
-                isMusicPlaying = false;
-            } else {
-                music.play().catch(e => console.log("Audio play failed:", e));
-                isMusicPlaying = true;
-            }
+        // Music
+        let playing = false;
+        function toggleMusic() {
+            const m = document.getElementById('romanticSong');
+            if(playing) { m.pause(); playing = false; }
+            else { m.play().then(() => playing = true).catch(() => alert("Touch screen then play!")); }
         }
 
-        // সারপ্রাইজ রেইন (চকলেট, ফুল ইত্যাদি)
-        function showRainSurprise() {
-            // যদি মিউজিক বন্ধ থাকে, চালু করো
-            if(!isMusicPlaying) toggleMusic();
-            
-            const items = ['🍫', '🌹', '🌸', '🍩', '💖', '🎁', '🍰', '🎈', '✨'];
-            for(let i=0; i<100; i++) {
+        // Toggle Wish Message
+        function toggleWish() {
+            const box = document.getElementById('wishBox');
+            box.style.display = (box.style.display === "block") ? "none" : "block";
+        }
+
+        // Celebrate with Sound
+        function celebrate() {
+            const snd = document.getElementById('fireworkSound');
+            snd.currentTime = 0;
+            snd.play(); // আতশবাজি ফাটার শব্দ
+
+            const items = ['🎉', '✨', '🎁', '🎂', '🎊', '🎆'];
+            for(let i=0; i<60; i++) {
                 setTimeout(() => {
                     const d = document.createElement('div');
                     d.className = 'drop';
                     d.innerText = items[Math.floor(Math.random()*items.length)];
                     d.style.left = Math.random()*100+'vw';
-                    d.style.fontSize = Math.random()*20+20+'px';
-                    d.style.animationDuration = Math.random()*2+3+'s';
+                    d.style.animationDuration = '3s';
                     document.body.appendChild(d);
-                    setTimeout(() => d.remove(), 5000); // ৫ সেকেন্ড পর মুছে ফেলো
-                }, i * 80);
+                    setTimeout(() => d.remove(), 3000);
+                }, i * 50);
             }
-        }
-
-        // মেসেজ বক্স দেখানো/লুকানো
-        function toggleMsg() {
-            const box = document.getElementById('msgBox');
-            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
-        }
-        
-        // আতশবাজি কণা তৈরি (Internal logic for Firecrackers)
-        function createFireworkParticle(x, y) {
-            const colors = ['#00d2ff', '#3498db', '#9b59b6', '#ff4757', '#fbc531', '#2ecc71'];
-            for (let i = 0; i < 35; i++) {
-                const conf = document.createElement('div');
-                conf.className = 'confetti';
-                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                conf.style.setProperty('--x', x + 'px');
-                conf.style.setProperty('--y', y + 'px');
-                
-                // র‍্যান্ডম এক্সপ্লোশন ভেক্টর
-                const angle = Math.random() * Math.PI * 2;
-                const velocity = Math.random() * 200 + 50;
-                const dx = Math.cos(angle) * velocity;
-                const dy = Math.sin(angle) * velocity;
-                
-                conf.style.setProperty('--dx', dx + 'px');
-                conf.style.setProperty('--dy', dy + 'px');
-                conf.style.setProperty('--duration', (Math.random() * 0.6 + 0.4) + 's');
-                
-                document.body.appendChild(conf);
-                setTimeout(() => conf.remove(), 1000); 
-            }
-        }
-        
-        // ফায়ারওয়ার্কস সেলিব্রেশন
-        function runFirecrackers() {
-            // সাউন্ড এফেক্ট
-            const sound = document.getElementById('fwSound');
-            sound.currentTime = 0; 
-            sound.play().catch(e => console.log("Sound play failed:", e));
-            
-            // স্ক্রিনের মাঝখানে আতশবাজি
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            
-            // কয়েক ধাপে বিস্ফোরণ
-            for (let i = 0; i < 6; i++) {
-                setTimeout(() => {
-                    createFireworkParticle(
-                        centerX + (Math.random() - 0.5) * 400,
-                        centerY + (Math.random() - 0.5) * 300
-                    );
-                }, i * 250);
-            }
-            
-            // বড় বার্তা দেখানো
-            const msg = document.getElementById('fwMsg');
-            msg.style.display = 'block';
-            setTimeout(() => {
-                msg.style.display = 'none';
-            }, 3500); // ৩.৫ সেকেন্ড পর বার্তা লুকাও
         }
     </script>
 </body>
